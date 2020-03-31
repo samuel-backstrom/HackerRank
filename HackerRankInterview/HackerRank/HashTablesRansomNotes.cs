@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,6 +8,11 @@ namespace HackerRank
     {
         public static void Compute(string[] magazine, string[] note)
         {
+            if (magazine is null)
+                throw new ArgumentNullException(nameof(magazine));
+            if (note is null)
+                throw new ArgumentNullException(nameof(note));
+
             var magazineSet = new Dictionary<string, int[]>();
             foreach (var s in magazine)
             {
@@ -26,7 +32,7 @@ namespace HackerRank
                 var existsInSet = magazineSet.TryGetValue(s, out var wordCount);
                 if (!existsInSet || (existsInSet && wordCount[0] == 0))
                 {
-                    System.Console.WriteLine("No");
+                    Console.WriteLine("No");
                     return;
                 }
                 else
@@ -35,13 +41,13 @@ namespace HackerRank
                     value[0]--;
                 }
             }
-            System.Console.WriteLine("Yes");
+            Console.WriteLine("Yes");
         }
 
         public static void Run()
         {
-            Compute(new string[] { "give", "me", "one", "grand", "today", "night" }, 
-                new string[] {"give", "one", "grand", "today", "today" });
+            Compute(new string[] { "give", "me", "one", "grand", "today", "night" },
+                new string[] { "give", "one", "grand", "today", "today" });
         }
     }
 }

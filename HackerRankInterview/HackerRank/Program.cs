@@ -6,7 +6,7 @@ namespace HackerRank
     {
         public static void Main(string[] args)
         {
-            BinTreeHeight.Run();
+            LowestCommonAncestor.Run();
         }
     }
 }
